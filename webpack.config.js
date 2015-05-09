@@ -20,5 +20,6 @@ module.exports = {
       { test: /\.eot$/, loader: 'file' },
       { test: /\.svg$/, loader: 'file' }
     ]
-  }
+  },
+  devtool: 'sourcemap'
 }

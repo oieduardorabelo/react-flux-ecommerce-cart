@@ -1,12 +1,17 @@
 'use strict'
 
 var React = require('react')
+var Catalog = require('./app-catalog')
+var Cart = require('./app-cart')
 
 var App = React.createClass({
   render: function() {
     return (
-      <div className="jumbotron text-center">
-        <h1 >Hello World</h1>
+      <div>
+        <h1>Let's Shop</h1>
+        <Catalog />
+        <h1>Cart</h1>
+        <Cart />
       </div>
     )
   }
