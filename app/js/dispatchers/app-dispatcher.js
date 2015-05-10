@@ -1,19 +1,14 @@
 'use strict'
 
-var Flux = require('flux')
-var Dispatcher = new Flux.Dispatcher()
+var Dispatcher = require('flux').Dispatcher
+var AppDispatcher = new Dispatcher()
 
-var AppDispatcher = {
-  handleViewAction: function(action) {
-    console.log(action)
-    Dispatcher.dispatch({
-      source: 'VIEW_ACTION',
-      action: action
-    })
-  },
-  register: function(payload) {
-    Dispatcher.register(payload)
-  }
+AppDispatcher.handleViewAction = function(action) {
+  console.log(action)
+  this.dispatch({
+    source: 'VIEW_ACTION',
+    action: action
+  })
 }
 
 module.exports = AppDispatcher

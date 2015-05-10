@@ -9,7 +9,7 @@ var Decrease = React.createClass({
   },
   render: function() {
     return (
-      <button onClick={this.click}>+</button>
+      <button onClick={this.click}>-</button>
     )
   }
 })

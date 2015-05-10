@@ -2,8 +2,8 @@
 
 var AppDispatcher = require('../dispatchers/app-dispatcher')
 var AppConstants = require('../constants/app-constants')
-var NodeEventEmmiter = require('events').EventEmitter
-var EventEmmiter = new NodeEventEmmiter()
+var EventEmmiter = require('events').EventEmitter
+var _ = require('lodash')
 
 var CHANGE_EVENT = 'CHANGE_EVENT'
 
@@ -47,23 +47,22 @@ function _addItem(item) {
   }
 }
 
-var AppStore = {
+var AppStore = _.assign(EventEmmiter.prototype, {
   emitChange: function() {
-    EventEmmiter.emit(CHANGE_EVENT)
+    this.emit(CHANGE_EVENT)
   },
   addChangeListener: function(callback) {
-    EventEmmiter.on(CHANGE_EVENT, callback)
+    this.on(CHANGE_EVENT, callback)
   },
   removeChangeListener: function(callback) {
-    EventEmmiter.removeListener(CHANGE_EVENT, callback)
+    this.removeListener(CHANGE_EVENT, callback)
   },
   getCart: function() {
     return _cartItems
   },
   getCatalog: function() {
     return _catalog
-  }
-  ,
+  },
   dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action
 
@@ -86,6 +85,6 @@ var AppStore = {
 
     return true
   })
-}
+})
 
 module.exports = AppStore
