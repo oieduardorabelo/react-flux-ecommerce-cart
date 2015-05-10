@@ -1,11 +1,11 @@
 'use strict'
 
 var React = require('react')
-var AppActions = require('../actions/app-actions')
+var CartActions = require('../actions/cart-actions')
 
 var RemoveFromCart = React.createClass({
   click: function() {
-    AppActions.removeItem(this.props.index)
+    CartActions.removeItem(this.props.index)
   },
   render: function() {
     return (

@@ -1,7 +1,7 @@
 'use strict'
 
 var AppDispatcher = require('../dispatchers/app-dispatcher')
-var AppConstants = require('../constants/app-constants')
+var CartConstants = require('../constants/cart-constants')
 var EventEmmiter = require('events').EventEmitter
 var _ = require('lodash')
 
@@ -67,16 +67,16 @@ var AppStore = _.assign(EventEmmiter.prototype, {
     var action = payload.action
 
     switch(action.actionType) {
-      case AppConstants.ADD_ITEM:
+      case CartConstants.ADD_ITEM:
         _addItem(payload.action.item)
         break
-      case AppConstants.REMOVE_ITEM:
+      case CartConstants.REMOVE_ITEM:
         _removeItem(payload.action.index)
         break
-      case AppConstants.INCREASE_ITEM:
+      case CartConstants.INCREASE_ITEM:
         _increaseItem(payload.action.index)
         break
-      case AppConstants.DECREASE_ITEM:
+      case CartConstants.DECREASE_ITEM:
         _decreaseItem(payload.action.index)
         break
     }

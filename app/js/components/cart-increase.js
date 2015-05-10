@@ -1,11 +1,11 @@
 'use strict'
 
 var React = require('react')
-var AppActions = require('../actions/app-actions')
+var CartActions = require('../actions/cart-actions')
 
 var Increase = React.createClass({
   click: function() {
-    AppActions.increaseItem(this.props.index)
+    CartActions.increaseItem(this.props.index)
   },
   render: function() {
     return (

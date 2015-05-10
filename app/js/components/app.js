@@ -1,8 +1,8 @@
 'use strict'
 
 var React = require('react')
-var Catalog = require('./app-catalog')
-var Cart = require('./app-cart')
+var Catalog = require('./catalog')
+var Cart = require('./cart')
 
 var App = React.createClass({
   render: function() {

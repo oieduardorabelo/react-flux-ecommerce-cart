@@ -2,7 +2,7 @@
 
 var React = require('react')
 var AppStore = require('../stores/app-store')
-var AddToCart = require('./app-addToCart')
+var AddToCart = require('./catalog-addToCart')
 
 function getCatalog() {
   return { items: AppStore.getCatalog() }

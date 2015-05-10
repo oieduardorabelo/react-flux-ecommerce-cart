@@ -1,11 +1,11 @@
 'use strict'
 
 var React = require('react')
-var AppActions = require('../actions/app-actions')
+var CartActions = require('../actions/cart-actions')
 
 var AddToCart = React.createClass({
   click: function() {
-    AppActions.addItem(this.props.item)
+    CartActions.addItem(this.props.item)
   },
   render: function() {
     return (
