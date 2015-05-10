@@ -65,22 +65,22 @@ var AppStore = _.assign(EventEmmiter.prototype, {
   },
   dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action
-
-    switch(action.actionType) {
-      case CartConstants.ADD_ITEM:
+    var actionsPayload = {
+      [CartConstants.ADD_ITEM]: function() {
         _addItem(payload.action.item)
-        break
-      case CartConstants.REMOVE_ITEM:
+      },
+      [CartConstants.REMOVE_ITEM]: function() {
         _removeItem(payload.action.index)
-        break
-      case CartConstants.INCREASE_ITEM:
+      },
+      [CartConstants.INCREASE_ITEM]: function() {
         _increaseItem(payload.action.index)
-        break
-      case CartConstants.DECREASE_ITEM:
+      },
+      [CartConstants.DECREASE_ITEM]: function() {
         _decreaseItem(payload.action.index)
-        break
+      }
     }
 
+    actionsPayload[action.actionType]()
     AppStore.emitChange()
 
     return true
